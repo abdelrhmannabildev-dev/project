@@ -1,0 +1,105 @@
+:root {
+
+  /* ===== BACKGROUND COLORS ===== */
+  --bg: #f8f9fb; 
+  /* لون الخلفية الرئيسي للموقع كله */
+  /* يتحط في body والخلفيات العامة */
+
+  --surface: #ffffff;
+  /* خلفية الكروت (cards / sections / boxes) */
+  /* يتحط في كل card أو container */
+
+  --surface-2: #eef1f6;
+  /* لون ثانوي للخلفيات (زي sidebars أو hover sections) */
+
+  /* ===== PRIMARY COLOR ===== */
+  --primary: #2563eb;
+  /* اللون الأساسي للموقع (buttons / links / highlights) */
+
+  --primary-hover: #1d4ed8;
+  /* لون الزرار أو اللينك لما تعمل hover */
+
+  /* ===== TEXT COLORS ===== */
+  --text: #111827;
+  /* لون النص الأساسي (العناوين + الكلام) */
+
+  --text-muted: #6b7280;
+  /* نصوص فرعية زي description / hints */
+
+  /* ===== BORDERS ===== */
+  --border: #e5e7eb;
+  /* حدود الكروت و inputs و tables */
+
+  /* ===== STATUS COLORS ===== */
+  --success: #22c55e;
+  /* نجاح (add to cart / success message) */
+
+  --danger: #ef4444;
+  /* حذف / error */
+
+  --warning: #f59e0b;
+  /* تنبيه */
+
+  /* ===== SHADOWS (الظلال) ===== */
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+  /* ظل خفيف للكروت */
+
+  --shadow-md: 0 6px 18px rgba(0,0,0,0.1);
+  /* ظل أقوى عند hover أو cards مهمة */
+
+  /* ===== BORDER RADIUS (الزوايا) ===== */
+  --radius-sm: 6px;
+  /* أزرار صغيرة / inputs */
+
+  --radius-md: 12px;
+  /* cards */
+
+  --radius-lg: 18px;
+  /* sections كبيرة */
+
+  /* ===== SPACING (المسافات) ===== */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  /* تستخدم بدل margin/padding عشوائي */
+}
+.dark {
+
+  /* ===== BACKGROUND COLORS ===== */
+  --bg: #0f172a;
+  /* الخلفية الأساسية (تصير dark blue/black) */
+
+  --surface: #111827;
+  /* الكروت تتحول لداكن */
+
+  --surface-2: #1f2937;
+  /* side sections أو hover dark */
+
+  /* ===== PRIMARY COLOR ===== */
+  --primary: #3b82f6;
+  /* نفس الفكرة لكن أوضح في dark */
+
+  --primary-hover: #60a5fa;
+  /* hover أخف عشان يبان على dark */
+
+  /* ===== TEXT COLORS ===== */
+  --text: #f9fafb;
+  /* النصوص تتحول أبيض */
+
+  --text-muted: #9ca3af;
+  /* النصوص الثانوية تبقى رمادي فاتح */
+
+  /* ===== BORDERS ===== */
+  --border: #374151;
+  /* borders تبقى واضحة على dark */
+
+  /* ===== SHADOWS ===== */
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.35);
+  /* ظل أقوى لأن الخلفية غامقة */
+
+  --shadow-md: 0 8px 20px rgba(0,0,0,0.5);
+  /* للكروت المهمة */
+}

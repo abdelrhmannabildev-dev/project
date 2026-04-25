@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>products</title>
+    <link rel="icon" href="logo5.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/cars.css">
+</head>
+<body class="">
+    <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Cars.html" class="active">Products</a></li>
+                <li><a href="test_drive.html">Test Drive</a></li>
+                <li><a href="cart.html">in cart</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html"> Contact Us</a></li>
+                <li><a href="login.html"> Login</a></li>
+            </ul>
+    </nav>
+
+    <main>
+    <div class="container">
+        <div class="category"></div>
+        <div class="filter">
+            <label for="search">Search Car Model:</label>
+            <input type="text" id="search" placeholder="Search for a car model...">
+
+            <label for="engine-type">Engine Type:</label>
+            <select id="engine-type">
+                <option value="all">All</option>
+                <option value="electric">Electric</option>
+                <option value="v6">V6</option>
+                <option value="v8">V8</option>
+                <option value="v12">V12</option>
+                <option value="hybrid">Hybrid</option>
+            </select>
+            <div class="range-container">
+            <label for="max-price">Max Price:</label>   
+            <input type="range" id="max-price" min="10000" max="200000" value="200000">
+            <span id="price-value">200,000</span>
+            </div>
+        </div>
+        <div class="cars-container"><p class="carnums">cars Num</p>
+            <div class="car-cards" id="car-list"></div>
+        </div>
+    </div>
+    </main>
+    <script src="cars.js" type="module"></script>
+</body>
+
+</html>

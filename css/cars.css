@@ -1,0 +1,229 @@
+:root{
+    --primary-color:#f9fafb;
+    --secondary-color:#d8dfe6;
+
+    --accent-color:#e63946;
+    --accent-color-2:#c1c6ce;
+    --accent-color-3:rgba(178, 183, 194, 0.8);
+    
+    --primary-text-color:##b0cffc;
+    --secondary-text-color:#949eac;
+
+    --border-color:#e2e8f0;
+}
+
+.dark{
+    --primary-color:#020617;        
+    --secondary-color:#020617;
+
+    --accent-color:#ff4d6d;
+    --accent-color-2:#94a3b8;
+    --accent-color-3:#020617;
+    
+    --primary-text-color:#f8fafc;
+    --secondary-text-color:#94a3b8;
+
+    --border-color:#1e293b;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--secondary-color);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    overflow-x:hidden;
+}
+
+/* NAVBAR */
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: var(--accent-color-3);
+    width: 80%;
+    margin-top: 1rem;
+    border-top: 2px solid var(--border-color);
+    border-bottom: 2px solid var(--border-color);
+    border-radius: 10px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav li a {
+    color: #f8fafc; /* fix contrast */
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+nav li a:hover {
+    color: var(--accent-color);
+}
+
+/* RESPONSIVE NAV */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 95%;
+        margin: 0 auto;
+        padding: 10px 15px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+
+main{
+    margin-top: 1rem;
+}
+
+.contaier {
+    display: flex;
+    padding: 20px;
+    margin-top: 5vh;
+}
+
+/* FILTER PANEL */
+.filter {
+    width: 80vw;
+    background-color: var(--accent-color-3);
+    color: #f8fafc; /* fix contrast */
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin: 1rem;
+    position: sticky;
+    top: 1rem;
+    z-index: 100;
+}
+
+.filter input[type="text"],
+.filter select,
+.filter button{
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 10px;
+    background-color: var(--accent-color-3);
+    color: #f8fafc;
+    transition:all 0.3s ease;
+}
+.filter input[type="text"]:focus,
+.filter select:focus,
+.filter button:focus{
+    outline: none;
+    border-color: var(--accent-color-2);
+    box-shadow: 0 0 5px var(--accent-color-2);
+}
+
+.range-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.filter input[type=range]{
+    width: 80%;
+    margin-bottom: 10px;
+}
+
+/* CATEGORY */
+.category{
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.category-label{
+    background-color: var(--accent-color-2);
+    color: var(--primary-text-color);
+    padding: 10px 30px;
+    border-radius: 20px;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.category-label:hover{
+    background-color: var(--accent-color-2);
+    color: #f8fafc;
+    opacity: 1;
+    scale: 1.05;
+}
+
+.category .active{
+    background-color: hsla(215, 20%, 65%, 0.272);
+    color: #f8fafc;
+    opacity: 1;
+    z-index: 2;
+}
+.filter h3{
+    margin-top: 0;
+}
+
+/* CARDS */
+.car-cards{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.car-card {
+    background-color: var(--secondary-color);
+    color: var(--primary-text-color);
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.car-card img {
+    max-width: 100%;
+    max-height: 100px;
+    height: auto;
+    border-radius: 5px;
+}
+
+.car-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    scale: 1.1;
+}
+.car-cards:has(.car-card:hover) .car-card:not(:hover) {
+    opacity: 0.4;
+    transform: scale(0.95);
+}
+/* COUNTER */
+.cars-container .carnums{
+    background-color: var(--secondary-color);
+    color: var(--primary-text-color);
+    margin: 10px 0;
+    font-size: 2rem;
+    text-align: center;
+}

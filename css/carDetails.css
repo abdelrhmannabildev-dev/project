@@ -1,0 +1,59 @@
+
+:root{
+    --primary-color:#f9fafb;
+    --secondary-color:#d8dfe6;
+
+    --accent-color:#e63946;
+    --accent-color-2:#c1c6ce;
+    --accent-color-3:rgba(178, 183, 194, 0.8);
+    
+    --primary-text-color:##b0cffc;
+    --secondary-text-color:#949eac;
+
+    --border-color:#e2e8f0;
+}
+
+.dark{
+    --primary-color:#020617;        
+    --secondary-color:#020617;
+
+    --accent-color:#ff4d6d;
+    --accent-color-2:#94a3b8;
+    --accent-color-3:#020617;
+    
+    --primary-text-color:#f8fafc;
+    --secondary-text-color:#94a3b8;
+
+    --border-color:#1e293b;
+}
+.container{
+    display: flex;
+    padding: 20px;
+    margin-top: 5vh;
+    flex-direction: row-reverse;
+    gap: 20px;
+}
+
+.right-section{
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.comments{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.comment-form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.comment{
+    background-color: var(--accent-color-2);
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: var(--primary-color);
+}
