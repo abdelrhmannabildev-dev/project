@@ -1,5 +1,4 @@
-import {cars} from "./data.js"
-
+import { cars } from './data.js';
 const categories = [...new Set(cars.map(car => car.type))];
 
 const categoryContainer = document.querySelector('.category');
