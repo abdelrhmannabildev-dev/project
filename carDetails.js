@@ -79,6 +79,14 @@ function renderDetails(car) {
             thumb.classList.add("active");
         });
     });
+    const buyButton = document.getElementById("buy-button");
+    buyButton.addEventListener("click", () => {
+        const inCart = JSON.parse(localStorage.getItem("inCart")) || [];
+        inCart.push(car);
+        localStorage.setItem("inCart", JSON.stringify(inCart));
+        alert("Car added to cart!");
+    });
+
 }
 
 if (!car) {
@@ -93,41 +101,6 @@ button.addEventListener('click', () => {
 });
 
 
-// comments 
-const form = document.querySelector("form");
-const commentInput = document.getElementById("comment");
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const comment = commentInput.value;
-    if(!comment) return;
-    commentInput.value = '';
-    const existingComments=JSON.parse(localStorage.getItem(carParam)) || [];
-    existingComments.push(comment);
-    localStorage.setItem(carParam, JSON.stringify(existingComments));
-    showComments(); 
-    console.log(comment);
-    console.log(localStorage.getItem(carParam));
-});
 
-function showComments(){
-    const comments = JSON.parse(localStorage.getItem(carParam)) || [];
-    const commentsContainer = document.querySelector('.comments');
-    commentsContainer.innerHTML = '';
-    comments.forEach(comment => {
-        const commentElement = document.createElement('div');
-        commentElement.classList.add('comment');
-        commentElement.textContent = comment;
-        commentsContainer.appendChild(commentElement);
-    });
-}
-showComments();
 
-const buyButton = document.getElementById("buy-button");
-if (buyButton && car) {
-    buyButton.addEventListener("click", () => {
-        const inCart = JSON.parse(localStorage.getItem("inCart")) || [];
-        inCart.push(car);
-        localStorage.setItem("inCart", JSON.stringify(inCart));
-        alert("Car added to cart!");
-    });
-}
+
