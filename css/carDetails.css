@@ -1,44 +1,158 @@
-
-:root{
-    --primary-color:#f9fafb;
-    --secondary-color:#d8dfe6;
-
-    --accent-color:#e63946;
-    --accent-color-2:#c1c6ce;
-    --accent-color-3:rgba(178, 183, 194, 0.8);
-    
-    --primary-text-color:##b0cffc;
-    --secondary-text-color:#949eac;
-
-    --border-color:#e2e8f0;
-}
-
-.dark{
-    --primary-color:#020617;        
-    --secondary-color:#020617;
-
-    --accent-color:#ff4d6d;
-    --accent-color-2:#94a3b8;
-    --accent-color-3:#020617;
-    
-    --primary-text-color:#f8fafc;
-    --secondary-text-color:#94a3b8;
-
-    --border-color:#1e293b;
+main{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    justify-content: center;
+    align-items: center;
 }
 .container{
-    display: flex;
-    padding: 20px;
-    margin-top: 5vh;
-    flex-direction: row-reverse;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 24px;
+    padding: 24px;
+    margin: 24px auto;
+    width: min(1100px, 92vw);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
 }
 
 .right-section{
-    margin-left: 20px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 14px;
+}
+
+.left-section{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: var(--shadow-sm);
+    padding: 5px 10px 10px;
+    border-radius: var(--radius-lg);
+}
+
+.left-section h1{
+    margin: 0;
+    font-size: 2rem;
+    letter-spacing: 0.2px;
+}
+
+.left-section h2{
+    margin: 0;
+    color: var(--primary);
+    font-size: 1.5rem;
+}
+
+.left-section p{
+    margin: 0;
+    background-color: var(--surface-2);
+    padding: 10px 12px;
+    border-radius: var(--radius-md);
+    font-size: 1.5rem;
+    color: var(--important);
+    line-height: 1.7;
+}
+
+.meta-chips{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 4px;
+}
+
+
+.chip{
+    border: 1px solid var(--border);
+    background: var(--surface-2);
+    border-radius: var(--radius-md);
+    padding: 10px 12px;
+    transition: all 0.4s ease;
+}
+.chip:hover{
+    background-color: var(--surface-3);
+    transform: translateY(-10px);
+
+}
+
+.chip-label{
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+}
+
+.chip-value{
+    font-weight: 600;
+    color: var(--text);
+}
+
+.buy button{
+    width: fit-content;
+    border: 0;
+    border-radius: 999px;
+    padding: 12px 16px;
+    background: var(--primary);
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.buy button:hover{
+    transform: translateY(-1px);
+    background: var(--primary-hover);
+}
+
+.category h3{
+    margin: 0 0 8px 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text);
+    background: var(--surface-2);
+    padding: 8px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    width: fit-content;
+}
+
+.car-main-image{
+    width: min(520px, 90vw);
+    max-width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    border: 1px solid var(--border);
+}
+
+.car-gallery{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.car-thumb{
+    width: 90px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    opacity: 0.9;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    border: 1px solid var(--border);
+}
+
+.car-thumb.active{
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+    opacity: 1;
+}
+
+.car-thumb:hover{
+    opacity: 1;
+    transform: translateY(-1px);
 }
 
 .comments{
@@ -52,8 +166,30 @@
     gap: 10px;
 }
 .comment{
-    background-color: var(--accent-color-2);
+    background-color: var(--surface-2);
     padding: 10px 20px;
     border-radius: 10px;
-    color: var(--primary-color);
+    color: var(--text);
 }
+
+@media (max-width: 900px){
+    .container{
+        grid-template-columns: 1fr;
+    }
+}
+#back-button{
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    padding: 10px 20px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background-color: var(--surface-2);
+    color: var(--text);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+#back-button:hover{
+    background-color: var(--surface-3);
+}
+

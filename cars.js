@@ -1,4 +1,4 @@
-import { cars } from './data.js';
+import { cars} from './data.js';
 const categories = [...new Set(cars.map(car => car.type))];
 
 const categoryContainer = document.querySelector('.category');
@@ -11,7 +11,7 @@ const searchInput = document.getElementById("search");
 
 let selectedCategory = 'all';
 
-//  run the app 
+//  desplay cars 
 displayCategory(categories);
 displayCars(cars);
 
@@ -55,7 +55,7 @@ function displayCategory(categories) {
     });
 }
 
-//  displaying cars as cards 
+//  displaying cards 
 function displayCars(list) {
     cardsContainer.innerHTML = '';
 
@@ -66,7 +66,7 @@ function displayCars(list) {
         const carCard = document.createElement('div');
         carCard.classList.add('car-card');
 
-        // ✅ Add dataset (important)
+
         carCard.dataset.name = car.name;
         carCard.dataset.type = car.type;
 
@@ -111,5 +111,5 @@ cardsContainer.addEventListener('click', (e) => {
     const carName=card.dataset.name;
     const category = card.dataset.type;
     console.log(carName);
-    window.location.href=`carDetails.html?name=${carName}&category=${category}`
+    window.location.href = `carDetails.html?name=${encodeURIComponent(carName)}&category=${encodeURIComponent(category)}`;
 });

@@ -1,31 +1,3 @@
-:root{
-    --primary-color:#f9fafb;
-    --secondary-color:#d8dfe6;
-
-    --accent-color:#e63946;
-    --accent-color-2:#c1c6ce;
-    --accent-color-3:rgba(178, 183, 194, 0.8);
-    
-    --primary-text-color:##b0cffc;
-    --secondary-text-color:#949eac;
-
-    --border-color:#e2e8f0;
-}
-
-.dark{
-    --primary-color:#020617;        
-    --secondary-color:#020617;
-
-    --accent-color:#ff4d6d;
-    --accent-color-2:#94a3b8;
-    --accent-color-3:#020617;
-    
-    --primary-text-color:#f8fafc;
-    --secondary-text-color:#94a3b8;
-
-    --border-color:#1e293b;
-}
-
 *{
     margin: 0;
     padding: 0;
@@ -34,67 +6,13 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: var(--secondary-color);
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
+    background-color: var(--bg);
+    display: block;
     overflow-x:hidden;
 }
 
-/* NAVBAR */
-nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 15px 20px;
-    background-color: var(--accent-color-3);
-    width: 80%;
-    margin-top: 1rem;
-    border-top: 2px solid var(--border-color);
-    border-bottom: 2px solid var(--border-color);
-    border-radius: 10px;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-}
-
-nav li a {
-    color: #f8fafc; /* fix contrast */
-    text-decoration: none;
-    font-size: 1rem;
-    transition: color 0.3s;
-}
-
-nav li a:hover {
-    color: var(--accent-color);
-}
-
-/* RESPONSIVE NAV */
-@media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        align-items: flex-start;
-        width: 95%;
-        margin: 0 auto;
-        padding: 10px 15px;
-    }
-
-    nav ul {
-        flex-direction: column;
-        gap: 10px;
-        width: 100%;
-        margin-top: 10px;
-    }
-}
-
 main{
-    margin-top: 1rem;
+    margin-top: 5vh;
 }
 
 .contaier {
@@ -106,8 +24,8 @@ main{
 /* FILTER PANEL */
 .filter {
     width: 80vw;
-    background-color: var(--accent-color-3);
-    color: #f8fafc; /* fix contrast */
+    background-color: var(--surface);
+    color: var(--text);
     padding: 20px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
@@ -123,18 +41,18 @@ main{
     width: 100%;
     padding: 10px;
     border-radius: 5px;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--border);
     margin-bottom: 10px;
-    background-color: var(--accent-color-3);
-    color: #f8fafc;
+    background-color: var(--surface-2);
+    color: var(--text);
     transition:all 0.3s ease;
 }
 .filter input[type="text"]:focus,
 .filter select:focus,
 .filter button:focus{
     outline: none;
-    border-color: var(--accent-color-2);
-    box-shadow: 0 0 5px var(--accent-color-2);
+    border-color: var(--primary);
+    box-shadow: 0 0 5px var(--primary);
 }
 
 .range-container{
@@ -159,8 +77,8 @@ main{
 }
 
 .category-label{
-    background-color: var(--accent-color-2);
-    color: var(--primary-text-color);
+    background-color: var(--surface-2);
+    color: var(--text);
     padding: 10px 30px;
     border-radius: 20px;
     opacity: 0.5;
@@ -169,7 +87,7 @@ main{
 }
 
 .category-label:hover{
-    background-color: var(--accent-color-2);
+    background-color: var(--surface-2);
     color: #f8fafc;
     opacity: 1;
     scale: 1.05;
@@ -193,8 +111,8 @@ main{
 }
 
 .car-card {
-    background-color: var(--secondary-color);
-    color: var(--primary-text-color);
+    background-color: var(--surface);
+    color: var(--text);
     padding: 20px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     border-radius: 10px;
@@ -221,8 +139,8 @@ main{
 }
 /* COUNTER */
 .cars-container .carnums{
-    background-color: var(--secondary-color);
-    color: var(--primary-text-color);
+    background-color: transparent;
+    color: var(--text);
     margin: 10px 0;
     font-size: 2rem;
     text-align: center;

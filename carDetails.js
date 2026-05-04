@@ -1,65 +1,100 @@
-import {cars} from "./data.js"
+import { cars } from "./data.js";
 
 
 const url= new URLSearchParams(window.location.search); 
 const carParam= url.get('name');
 const categoryParam = url.get('category');
-const car= cars.find(car => car.name === carParam);
+const car = cars.find((car) => car.name === carParam);
 
 console.log(carParam);
 
-const carDetails= document.querySelector('.car-details');
+const carDetails = document.querySelector(".car-details");
 
-function renderDetails(car){
-    const html=`
-    <div class="container">
-        <div class="category"><h3>${categoryParam}</h3></div>
-        <div class="right-section">
-            <img src="${car.image}" alt="${car.name}">
+function renderDetails(car) {
+    const allImages = Array.isArray(car.images) && car.images.length ? car.images : [car.image].filter(Boolean);
+    const price = typeof car.price === "number" ? `$${car.price.toLocaleString()}` : car.price;
+
+    const chips = [
+        car.engine ? { label: "Engine", value: car.engine } : null,
+        car.fuel ? { label: "Fuel", value: car.fuel } : null,
+        car.topSpeed ? { label: "Top speed", value: `${car.topSpeed} km/h` } : null,
+        car.seats ? { label: "Seats", value: car.seats } : null,
+    ].filter(Boolean);
+
+    const galleryHtml = allImages.length > 1
+        ? `
+            <div class="car-gallery">
+                ${allImages
+                    .map(
+                        (src, idx) =>
+                            `<img class="car-thumb${idx === 0 ? " active" : ""}" src="${src}" alt="${car.name}" data-src="${src}">`
+                    )
+                    .join("")}
+            </div>
+        `
+        : "";
+
+    const detailsHtml = `
+        <div class="container">
+
+            <div class="left-section">
+                <h1>${car.name}</h1>
+                <h2>${price}</h2>
+                ${chips.length
+                    ? `
+                        <div class="meta-chips">
+                            ${chips
+                                .map(
+                                    (c) => `
+                                        <div class="chip">
+                                            <span class="chip-label">${c.label}</span>
+                                            <span class="chip-value">${c.value}</span>
+                                        </div>
+                                    `
+                                )
+                                .join("")}
+                        </div>
+                    `
+                    : ""}
+                <p>${car.description || ""}</p>
+                <div class="buy"><button id="buy-button">add to card</button></div>
+            </div>
+            <div class="right-section">
+                <div class="category"><h3>${categoryParam || ""}</h3></div>
+                <img class="car-main-image" src="${car.image}" alt="${car.name}">
+                ${galleryHtml}
+            </div>
         </div>
-        <div class="left-section">
-            <h1>${car.name}</h1>
-            <h2>${car.price}</h2>
-            <p>${car.description}</p>
-        </div>
-        <div class="buy"><button id="buy-button">add to card</button></div>
-    </div>
     `;
-    carDetails.innerHTML=html;
+
+    carDetails.innerHTML = detailsHtml;
+
+    const mainImage = carDetails.querySelector(".car-main-image");
+    carDetails.querySelectorAll(".car-thumb").forEach((thumb) => {
+        thumb.addEventListener("click", () => {
+            const src = thumb.getAttribute("data-src");
+            if (src) mainImage.src = src;
+
+            carDetails.querySelectorAll(".car-thumb").forEach((t) => t.classList.remove("active"));
+            thumb.classList.add("active");
+        });
+    });
 }
-// function renderSimilar(originalCar){
-//     const moreCars= cars.filter(car => car.type === originalCar.type);
-//     const moreContainer = document.createElement('div');
-//     moreContainer.classList.add('more-cars');
-//     moreContainer.innerHTML=`
-//         <h2>Similar Cars</h2>
-//         `;
-//     const moreCarsContainer= document.createElement('div');
-//     moreCarsContainer.classList.add('more-cars-container');
-//     moreContainer.appendChild(moreCarsContainer);
-//     moreCars.forEach(car=>{
-//         const carCard= document.createElement('div');
-//         carCard.classList.add('car-card');
-//         carCard.innerHTML=`
-//         <img src="${car.image}" alt="${car.name}">
-//         <h4>${car.name}</h4>
-//         <p>${car.specs}</p>
-//         <p class="price">$${car.price}</p>
-//         `;
-//         moreCarsContainer.appendChild(carCard);
-//     });
-//     carDetails.appendChild(moreContainer);
-// }
-renderDetails(car);
+
+if (!car) {
+    carDetails.innerHTML = `<p>Car not found.</p>`;
+} else {
+    renderDetails(car);
+}
 // renderSimilar(car);
-const button= document.getElementById('back-button');
+const button = document.getElementById("back-button");
 button.addEventListener('click', () => {
     window.history.back();
 });
 
 
 // comments 
-const form= document.querySelector('form');
+const form = document.querySelector("form");
 const commentInput = document.getElementById("comment");
 form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -87,10 +122,12 @@ function showComments(){
 }
 showComments();
 
-const buyButton = document.getElementById('buy-button');
-buyButton.addEventListener('click', () => {
-    const inCart = JSON.parse(localStorage.getItem('inCart')) || [];
-    inCart.push(car);
-    localStorage.setItem('inCart', JSON.stringify(inCart));
-    alert('Car added to cart!');
-});
+const buyButton = document.getElementById("buy-button");
+if (buyButton && car) {
+    buyButton.addEventListener("click", () => {
+        const inCart = JSON.parse(localStorage.getItem("inCart")) || [];
+        inCart.push(car);
+        localStorage.setItem("inCart", JSON.stringify(inCart));
+        alert("Car added to cart!");
+    });
+}

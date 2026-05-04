@@ -1,105 +1,215 @@
-:root {
-
-  /* ===== BACKGROUND COLORS ===== */
-  --bg: #f8f9fb; 
-  /* لون الخلفية الرئيسي للموقع كله */
-  /* يتحط في body والخلفيات العامة */
-
-  --surface: #ffffff;
-  /* خلفية الكروت (cards / sections / boxes) */
-  /* يتحط في كل card أو container */
-
-  --surface-2: #eef1f6;
-  /* لون ثانوي للخلفيات (زي sidebars أو hover sections) */
-
-  /* ===== PRIMARY COLOR ===== */
-  --primary: #2563eb;
-  /* اللون الأساسي للموقع (buttons / links / highlights) */
-
-  --primary-hover: #1d4ed8;
-  /* لون الزرار أو اللينك لما تعمل hover */
-
-  /* ===== TEXT COLORS ===== */
-  --text: #111827;
-  /* لون النص الأساسي (العناوين + الكلام) */
-
-  --text-muted: #6b7280;
-  /* نصوص فرعية زي description / hints */
-
-  /* ===== BORDERS ===== */
-  --border: #e5e7eb;
-  /* حدود الكروت و inputs و tables */
-
-  /* ===== STATUS COLORS ===== */
-  --success: #22c55e;
-  /* نجاح (add to cart / success message) */
-
-  --danger: #ef4444;
-  /* حذف / error */
-
-  --warning: #f59e0b;
-  /* تنبيه */
-
-  /* ===== SHADOWS (الظلال) ===== */
-  --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
-  /* ظل خفيف للكروت */
-
-  --shadow-md: 0 6px 18px rgba(0,0,0,0.1);
-  /* ظل أقوى عند hover أو cards مهمة */
-
-  /* ===== BORDER RADIUS (الزوايا) ===== */
-  --radius-sm: 6px;
-  /* أزرار صغيرة / inputs */
-
-  --radius-md: 12px;
-  /* cards */
-
-  --radius-lg: 18px;
-  /* sections كبيرة */
-
-  /* ===== SPACING (المسافات) ===== */
-  --space-1: 4px;
-  --space-2: 8px;
-  --space-3: 12px;
-  --space-4: 16px;
-  --space-5: 24px;
-  --space-6: 32px;
-  /* تستخدم بدل margin/padding عشوائي */
+*{
+    box-sizing: border-box;
 }
-.dark {
 
-  /* ===== BACKGROUND COLORS ===== */
-  --bg: #0f172a;
-  /* الخلفية الأساسية (تصير dark blue/black) */
-
-  --surface: #111827;
-  /* الكروت تتحول لداكن */
-
-  --surface-2: #1f2937;
-  /* side sections أو hover dark */
-
-  /* ===== PRIMARY COLOR ===== */
-  --primary: #3b82f6;
-  /* نفس الفكرة لكن أوضح في dark */
-
-  --primary-hover: #60a5fa;
-  /* hover أخف عشان يبان على dark */
-
-  /* ===== TEXT COLORS ===== */
-  --text: #f9fafb;
-  /* النصوص تتحول أبيض */
-
-  --text-muted: #9ca3af;
-  /* النصوص الثانوية تبقى رمادي فاتح */
-
-  /* ===== BORDERS ===== */
-  --border: #374151;
-  /* borders تبقى واضحة على dark */
-
-  /* ===== SHADOWS ===== */
-  --shadow-sm: 0 2px 8px rgba(0,0,0,0.35);
-  /* ظل أقوى لأن الخلفية غامقة */
-
-  --shadow-md: 0 8px 20px rgba(0,0,0,0.5);
-  /* للكروت المهمة */
+html, body{
+    height: 100%;
 }
+
+body{
+    margin: 0;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+
+
+    * {
+        box-sizing: border-box;
+    }
+
+
+
+    body {
+        margin: 0;
+        font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+    }
+
+
+    header nav {
+        width: min(1100px, 92vw);
+        margin: 16px auto;
+        padding: 14px 18px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-sm);
+    }
+
+    header nav ul {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    header nav a {
+        padding: 8px 10px;
+        border-radius: 10px;
+        color: var(--text);
+        opacity: 0.9;
+        transition: 0.2s ease;
+    }
+
+    header nav a:hover {
+        background: var(--surface-2);
+        opacity: 1;
+    }
+
+    .theme-toggle,nav button {
+        margin-inline-start: 10px;
+        border: 1px solid var(--border);
+        background: var(--surface-2);
+        color: var(--text);
+        border-radius: 999px;
+        padding: 8px 12px;
+        cursor: pointer;
+        transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .theme-toggle:hover {
+        transform: translateY(-1px);
+        background: var(--surface);
+    }
+
+    .theme-toggle-fab {
+        position: fixed;
+        right: 16px;
+        bottom: 16px;
+        z-index: 999;
+        border: 1px solid var(--border);
+        background: var(--surface);
+        color: var(--text);
+        border-radius: 999px;
+        padding: 10px 14px;
+        box-shadow: var(--shadow-md);
+        cursor: pointer;
+    }
+
+    /* Unified navbar (top/sidebar) */
+    .menu-toggle{
+        position: fixed;
+        top: 14px;
+        right: 14px;
+        z-index: 1001;
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        background: var(--surface);
+        color: var(--text);
+        cursor: pointer;
+        box-shadow: var(--shadow-sm);
+        display: none;
+    }
+
+    .navbar{
+        width: min(1100px, 92vw);
+        margin: 16px auto;
+        padding: 14px 18px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-sm);
+    }
+
+    .nav-container{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+    }
+
+    .nav-links{
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-links a{
+        padding: 8px 10px;
+        border-radius: 10px;
+        color: var(--text);
+        opacity: 0.9;
+        transition: 0.2s ease;
+        display: inline-block;
+    }
+
+    .nav-links a:hover{
+        background: var(--surface-2);
+        opacity: 1;
+    }
+
+    /* Dark theme => sidebar */
+    body.nav-sidebar .menu-toggle{
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    body.nav-sidebar .navbar{
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 260px;
+        margin: 0;
+        border-radius: 0;
+        border-left: 1px solid var(--border);
+        border-top: 0;
+        border-right: 0;
+        border-bottom: 0;
+        transform: translateX(100%);
+        transition: transform 0.25s ease;
+        z-index: 1000;
+    }
+
+    body.nav-sidebar.sidebar-open .navbar{
+        transform: translateX(0);
+    }
+
+    body.nav-sidebar.sidebar-open::before{
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.35);
+        z-index: 999;
+    }
+
+    body.nav-sidebar .nav-container{
+        height: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        padding: 18px;
+    }
+
+    body.nav-sidebar .nav-links{
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: 10px;
+    }
+
+    body.nav-sidebar .nav-links a{
+        width: 100%;
+    }
+
+    body.nav-top .navbar{
+        position: sticky;
+        top: 12px;
+        z-index: 900;
+    }

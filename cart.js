@@ -28,6 +28,12 @@ carsInCart.forEach((car, index) => {
     carsInCart.splice(index, 1);
     localStorage.setItem('inCart', JSON.stringify(carsInCart));
     displayCart();
+    const subtotal=carsInCart.reduce((total, car) => total + car.price, 0);
+    const tax=subtotal*0.14;
+    const total=subtotal+tax;
+    document.querySelector('.subtotal').textContent=subtotal.toFixed(2);
+    document.querySelector('.tax').textContent=tax.toFixed(2);
+    document.querySelector('.total').textContent=total.toFixed(2);
     });
 
     cartContainer.appendChild(carCard);
@@ -35,3 +41,10 @@ carsInCart.forEach((car, index) => {
 }
 
 displayCart();
+
+const subtotal=carsInCart.reduce((total, car) => total + car.price, 0);
+const tax=subtotal*0.14;
+const total=subtotal+tax;
+document.querySelector('.subtotal').textContent=subtotal.toFixed(2);
+document.querySelector('.tax').textContent=tax.toFixed(2);
+document.querySelector('.total').textContent=total.toFixed(2);
