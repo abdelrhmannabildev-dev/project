@@ -2,7 +2,6 @@
 
 .hero {
     height: 100vh;
-    margin-top: 24px;
 
     display: flex;
     flex-direction: column;
@@ -165,5 +164,7 @@
 }
 
 .user {
-    color: var(--primary);
+    color: white;
+    font-weight: bold;
+    font-size: 2rem;
 }

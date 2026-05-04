@@ -14,7 +14,7 @@ function renderDetails(car) {
     const allImages = Array.isArray(car.images) && car.images.length ? car.images : [car.image].filter(Boolean);
     const price = typeof car.price === "number" ? `$${car.price.toLocaleString()}` : car.price;
 
-    const chips = [
+    const infos = [
         car.engine ? { label: "Engine", value: car.engine } : null,
         car.fuel ? { label: "Fuel", value: car.fuel } : null,
         car.topSpeed ? { label: "Top speed", value: `${car.topSpeed} km/h` } : null,
@@ -27,7 +27,7 @@ function renderDetails(car) {
                 ${allImages
                     .map(
                         (src, idx) =>
-                            `<img class="car-thumb${idx === 0 ? " active" : ""}" src="${src}" alt="${car.name}" data-src="${src}">`
+                            `<img class="car-img${idx === 0 ? " active" : ""}" src="${src}" alt="${car.name}" data-src="${src}">`
                     )
                     .join("")}
             </div>
@@ -40,15 +40,15 @@ function renderDetails(car) {
             <div class="left-section">
                 <h1>${car.name}</h1>
                 <h2>${price}</h2>
-                ${chips.length
+                ${infos.length
                     ? `
-                        <div class="meta-chips">
-                            ${chips
+                        <div class="meta-infos">
+                            ${infos
                                 .map(
                                     (c) => `
-                                        <div class="chip">
-                                            <span class="chip-label">${c.label}</span>
-                                            <span class="chip-value">${c.value}</span>
+                                        <div class="info">
+                                            <span class="info-label">${c.label}</span>
+                                            <span class="info-value">${c.value}</span>
                                         </div>
                                     `
                                 )
@@ -70,12 +70,12 @@ function renderDetails(car) {
     carDetails.innerHTML = detailsHtml;
 
     const mainImage = carDetails.querySelector(".car-main-image");
-    carDetails.querySelectorAll(".car-thumb").forEach((thumb) => {
+    carDetails.querySelectorAll(".car-img").forEach((thumb) => {
         thumb.addEventListener("click", () => {
             const src = thumb.getAttribute("data-src");
             if (src) mainImage.src = src;
 
-            carDetails.querySelectorAll(".car-thumb").forEach((t) => t.classList.remove("active"));
+            carDetails.querySelectorAll(".car-img").forEach((t) => t.classList.remove("active"));
             thumb.classList.add("active");
         });
     });
@@ -99,8 +99,3 @@ const button = document.getElementById("back-button");
 button.addEventListener('click', () => {
     window.history.back();
 });
-
-
-
-
-

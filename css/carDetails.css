@@ -56,7 +56,7 @@ main{
     line-height: 1.7;
 }
 
-.meta-chips{
+.meta-infos{
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
@@ -64,27 +64,27 @@ main{
 }
 
 
-.chip{
+.info{
     border: 1px solid var(--border);
     background: var(--surface-2);
     border-radius: var(--radius-md);
     padding: 10px 12px;
     transition: all 0.4s ease;
 }
-.chip:hover{
+.info:hover{
     background-color: var(--surface-3);
     transform: translateY(-10px);
 
 }
 
-.chip-label{
+.info-label{
     display: block;
     font-size: 0.8rem;
     color: var(--text-muted);
     margin-bottom: 4px;
 }
 
-.chip-value{
+.info-value{
     font-weight: 600;
     color: var(--text);
 }
@@ -134,7 +134,7 @@ main{
     flex-wrap: wrap;
 }
 
-.car-thumb{
+.car-img{
     width: 90px;
     height: 60px;
     object-fit: cover;
@@ -145,13 +145,13 @@ main{
     border: 1px solid var(--border);
 }
 
-.car-thumb.active{
+.car-img.active{
     outline: 2px solid var(--primary);
     outline-offset: 2px;
     opacity: 1;
 }
 
-.car-thumb:hover{
+.car-img:hover{
     opacity: 1;
     transform: translateY(-1px);
 }
