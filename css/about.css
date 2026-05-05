@@ -26,6 +26,5 @@ section{
     text-align: center;
 }
 section:hover{
-    box-shadow: var(--shadow-lg);
     transform: translateY(-10px);
 }
