@@ -9,25 +9,28 @@
 </head>
 <body>
     <header>
-        <button class="menu-toggle" type="button" data-menu-toggle>☰</button>
+        <button class="menu-toggle" type="button" >☰</button>
 
-        <nav class="navbar">
-            <div class="nav-container">
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="Cars.html" class="active">Products</a></li>
-                    <li><a href="category.html">category</a></li>
-                    <li><a href="test_drive.html">Test Drive</a></li>
-                    <li><a href="cart.html">in cart</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="contact.html"> Contact Us</a></li>
-                    <li><a href="about.html">about Us</a></li>
-                    <li><a href="login.html" class="login"> Login</a></li>
-                </ul>
-                <button type="button" class="theme-toggle" data-theme-toggle>Theme</button>
+            <nav class="navbar">
+                <div class="nav-container">
+                    <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="Cars.html" class="active">Products</a></li>
+                        <li><a href="category.html">category</a></li>
+                        <li><a href="test_drive.html">Test Drive</a></li>
+                        <li><a href="cart.html">in cart</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html"> Contact Us</a></li>
+                        <li><a href="about.html">about Us</a></li>
+                        <li class="login"><a href="login.html" class="login"> Login</a></li>
+                    </ul>
+                <button type="button" class="theme-toggle" >Theme</button>
+                <button id="logout" onclick="logout()">Logout</button>
+
             </div>
         </nav>
     </header>
+
     <main>
         <h1>Registration</h1>
 
@@ -111,5 +114,6 @@
     </footer>
         <script src="registration.js"></script>
         <script src="theme.js"></script>
+        <script src="user.js"></script>
     </body>
 </html>

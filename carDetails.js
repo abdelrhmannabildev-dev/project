@@ -57,7 +57,7 @@ function renderDetails(car) {
                     `
                     : ""}
                 <p>${car.description || ""}</p>
-                <div class="buy"><button id="buy-button">add to card</button></div>
+                <div class="buy"><button id="buy-button">add to card <span style="color: rgb(154, 255, 154);">$$</span></button></div>
             </div>
             <div class="right-section">
                 <div class="category"><h3>${categoryParam || ""}</h3></div>

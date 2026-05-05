@@ -13,25 +13,28 @@
 <body>
 
     <header>
-        <button class="menu-toggle" type="button" data-menu-toggle>☰</button>
+        <button class="menu-toggle" type="button" >☰</button>
 
-        <nav class="navbar">
-            <div class="nav-container">
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="Cars.html" class="active">Products</a></li>
-                    <li><a href="category.html">category</a></li>
-                    <li><a href="test_drive.html">Test Drive</a></li>
-                    <li><a href="cart.html">in cart</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="contact.html"> Contact Us</a></li>
-                    <li><a href="about.html">about Us</a></li>
-                    <li><a href="login.html" class="login"> Login</a></li>
-                </ul>
-                <button type="button" class="theme-toggle" data-theme-toggle>Theme</button>
+            <nav class="navbar">
+                <div class="nav-container">
+                    <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="Cars.html" class="active">Products</a></li>
+                        <li><a href="category.html">category</a></li>
+                        <li><a href="test_drive.html">Test Drive</a></li>
+                        <li><a href="cart.html">in cart</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html"> Contact Us</a></li>
+                        <li><a href="about.html">about Us</a></li>
+                        <li class="login"><a href="login.html" class="login"> Login</a></li>
+                    </ul>
+                <button type="button" class="theme-toggle" >Theme</button>
+                <button id="logout" onclick="logout()">Logout</button>
+
             </div>
         </nav>
     </header>
+
 
     <main>
         <section>
@@ -67,7 +70,7 @@
         <P>We promise to respond to all inquiries within 24 hours.
         </P>
 
-        <section>
+        <section class="card">
             <h2>Contact Information</h2>
             <ul>
                 <li><strong>SALES DEPARTMENT:</strong> 0123456789</li>
@@ -75,7 +78,7 @@
                 <li><strong>Email:</strong> primemotors@gmail.com</li>
                 <li><strong>Working Hours:</strong> Saturday : Thursday (9:00 AM - 9:00 PM)</li>
                 <li><strong>Location:</strong>Cairo, Egypt</li>
-<!-- iframe with map -->
+            </ul>
             <iframe 
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d221147.2882893504!2d31.11065935371561!3d30.05948381023683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583fa6002931d7%3A0x79dfb226e8423bb!2sCairo%2C%20Cairo%20Governorate!5e0!3m2!1sen!2seg!4v1714820000000!5m2!1sen!2seg" 
             width="100%" 
@@ -84,7 +87,6 @@
             allowfullscreen="" 
             referrerpolicy="no-referrer-when-downgrade">
             </iframe> 
-            </ul>
         </section>
     </main>
 
@@ -130,5 +132,6 @@
     </footer>
     <script src="contact.js"></script>
     <script src="theme.js"></script>
+    <script src="user.js"></script>
 </body>
 </html>
